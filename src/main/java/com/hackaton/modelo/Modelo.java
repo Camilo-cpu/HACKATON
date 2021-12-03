@@ -18,7 +18,7 @@ public class Modelo {
     private String nombre;
     private Integer edad;
     private String usuario;
-    private String contraseña;
+    private String contrasena;
     private String mediotransporte;
     private Integer kmrecorrido;
     
