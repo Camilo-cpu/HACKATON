@@ -23,40 +23,31 @@ public class RecorridoService {
     /**
      * Instancia de la clase Factores
      */
-    Factores factor;
-    /**
-     * Instancia de la clase Recorridos
-     */
-    Recorridos recorrido;
     
+    
+    /**
+     * Método que llama todos los elementos de la tabla
+     * @return lista con todos los elementos presentes en la tabla
+     */
     public List<Recorridos> getAll(){
         return recorridoRepository.getAll();
     }
     
+    /**
+     * Método para obtener un recorrido por su id
+     * @param id Id del recorrido
+     * @return Valores del recorrido o un elemento vacío en caso de que este no exista
+     */
     public Optional<Recorridos> getRecorrido(Integer id){
         return recorridoRepository.getRecorrido(id);
     }
     
     /**
-     * Método usado para calcular la huella de carbono usando como datos de
-     * entrada la distancia recorrida y el combustible usado en el recorrido
-     * @param distancia distancia recorrida en Km
-     * @param combustible combustible usado, puede ser Gasolina, Diesel o Gas
-     * @return valor de la huella de carbono en KgCO2/Km
+     * Método para guardar un recorrido. Verifica que el id no exista, en caso de que
+     * exista revisa si el elemento es vacío o no
+     * @param recorrido recorrido a guardar
+     * @return recorrido en caso de que el id ya exista y esté lleno
      */
-    private void calcularHuella(){
-        
-        if("gasolina".equals(recorrido.getCombustible().toLowerCase())){
-            recorrido.setResultado(recorrido.getDistancia() * factor.getGASOLINA());
-        } else if("diesel".equals(recorrido.getCombustible())){
-            recorrido.setResultado(recorrido.getDistancia() * factor.getDIESEL());
-        } else if("gas".equals(recorrido.getCombustible())){
-            recorrido.setResultado(recorrido.getDistancia() * factor.getGAS());
-        }
-
-    }
-    
-    
     public Recorridos save(Recorridos recorrido){
         if(recorrido.getId() == null){
             return recorridoRepository.save(recorrido);
@@ -70,13 +61,12 @@ public class RecorridoService {
         }
     }
     
+    /**
+     * Método que busca los recorridos realizados en un barrio
+     * @param barrio barrio a buscar
+     * @return lista de los recorridos realizados en dicho barrio
+     */
     public List<Recorridos> busquedaBarrio(String barrio){
         return recorridoRepository.busquedaBarrio(barrio);
     }
-    
-    public Double resultadoMayor(){
-        return recorridoRepository.resultadoMayor();
-    }
-    
-    
 }

@@ -7,7 +7,6 @@ package com.hackaton.controlador.repositorio.crud;
 
 import com.hackaton.modelo.Recorridos;
 import java.util.List;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 
@@ -25,7 +24,4 @@ public interface RecorridoCrudRepository extends CrudRepository<Recorridos, Inte
      */
     public List<Recorridos> findAllByBarrio(String barrio);
     
-    
-    @Query(value="SELECT TOP 1 FROM RECORRIDO ORDER BY resultado DESC", nativeQuery=true)
-    public Double findMaxResultado();
 }

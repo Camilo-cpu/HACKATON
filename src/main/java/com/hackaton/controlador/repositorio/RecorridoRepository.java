@@ -55,9 +55,5 @@ public class RecorridoRepository {
     public List<Recorridos> busquedaBarrio(String barrio){
         return recorridoCrudRepository.findAllByBarrio(barrio);
     }
-    
-    public Double resultadoMayor(){
-        return recorridoCrudRepository.findMaxResultado();
-    }
      
 }

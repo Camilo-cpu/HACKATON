@@ -17,34 +17,46 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
- * @author Ale Giraldo
+ * Clase que construye las peticiones API a usar
+ * @author Alejandro Giraldo
  */
 @RestController
 @RequestMapping("/api/recorrido")
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class RecorridoControlador {
     
+    /**
+     * Inyección de la clase RecorridoService
+     */
     @Autowired
     RecorridoService recorridoService;
     
+    /**
+     * Petición /all
+     * @return retorna todos los recorridos realizados
+     */
     @GetMapping("/all")
     public List<Recorridos> getAll(){
         return recorridoService.getAll();
     }
     
+    /**
+     * Petición /nuevo, guarda un recorrido nuevo
+     * @param recorrido recorrido a guardar en JSON
+     * @return Código de estado 201
+     */
     @PostMapping("/nuevo")
     @ResponseStatus(HttpStatus.CREATED)
     public Recorridos save(@RequestBody Recorridos recorrido){
         return recorridoService.save(recorrido);
     }
     
-    @GetMapping("/mayor")
-    public Double estadisticasBasicas(){
-        return recorridoService.resultadoMayor();
-    }
-    
-    @GetMapping("{barrio}")
+    /**
+     * Petición /{barrio}, busca los recorridos realizados en un barrio
+     * @param barrio barrio a buscar
+     * @return JSON con los recorridos realizados en el barrio
+     */
+    @GetMapping("/{barrio}")
     public List<Recorridos> busquedaBarrio(@PathVariable("barrio") String barrio){
         return recorridoService.busquedaBarrio(barrio);
     }
