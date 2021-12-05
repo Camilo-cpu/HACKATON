@@ -7,13 +7,24 @@ $(document).ready(function(){
      * Añadir focus a campo email.
      */
     $("#email_usuario").focus();
+
+    let infoUsuario = {
+        id: "1",
+        nombre: "Sebastian",
+        email: "sebas@correo.com",
+        usuario: "sebas98",
+        contrasena: "sebas123"
+    }
+
     /**
      * Prevenir acción por defecto al presionar botón "Ingresar"
      */
     $("#form_ingreso").on('submit', function(event){
         event.preventDefault();
         if (validarCamposIngreso()){
-            iniciarSesion();
+            //iniciarSesion();
+            enviarInfoUsuario(infoUsuario);
+            window.location.href = "index.html";
         } else {
             Swal.fire({
                 icon: 'warning',
@@ -37,16 +48,37 @@ function iniciarSesion(){
 
         // Autenticar usuario
         $.ajax({
-            url: "http://140.238.179.6:8081/api/user/"+emailUsuario+"/"+pswrdUsuario,
+            url: "http://localhost:8081/api/user/"+emailUsuario+"/"+pswrdUsuario,
             method:'GET',
             dataType:'json',
             contentType: 'application/JSON',
             success:function(response){
                 mostrarAlerta(response);
                 limpiarCamposIngreso();
+                enviarInfoUsuario(response);
             }
         });
     }
+}
+
+function enviarInfoUsuario(response){
+    // Crear objeto con info del usuario.
+    let infoUsuario = {
+        id: response["id"],
+        nombre: response["nombre"],
+        email: response["email"],
+        usuario: response["usuario"],
+        contrasena: response["contrasena"]
+    }
+
+    console.log(infoUsuario);
+    // Convertir a formato JSON.
+    usuarioJSON = JSON.stringify(infoUsuario);
+    
+    console.log(usuarioJSON);
+
+    // Guardar info en sessionStorage
+    sessionStorage.setItem("usuario", usuarioJSON);
 }
 
 /**

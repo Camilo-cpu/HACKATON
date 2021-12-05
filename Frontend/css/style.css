@@ -1,0 +1,292 @@
+@import url();
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+  min-height: 100wh;
+  overflow-x: hidden;
+  background-image: url(../img/hojitas.jpg);
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+}
+header .nombreApp {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 3em;
+  text-transform: uppercase;
+  align-items: center;
+  position: absolute;
+  left: 170px;
+}
+header .logo {
+  width: 30%;
+  height: 30%;
+  margin-left: 50px;
+}
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li {
+  list-style: none;
+  margin-left: 20px;
+  align-items: center;
+}
+header ul li a {
+  text-decoration: none;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 20px;
+  align-items: center;
+}
+header ul li a:hover,
+header ul li a.active {
+  background: #fff;
+  color: #35643e;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #254e2c, transparent);
+  z-index: 1000;
+}
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+section img#mountains_behind {
+  mix-blend-mode: screen;
+}
+
+#text {
+  position: absolute;
+  right: -35%;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 7.5vw;
+  z-index: 9;
+}
+#btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 40px;
+  background: #fff;
+  color: #246629;
+  font-size: 1.5em;
+  z-index: 9;
+  transform: translateY(100px);
+}
+.sec {
+  position: relative;
+  padding: 100px;
+  background: #254e2c;
+}
+.sec h2 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.sec .ciudad {
+  background-color: #3c7332;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+}
+.sec .ciudad:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.sec .ciudad img {
+  width: 1800px;
+  height: 220px;
+}
+.sec .ciudad h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+.sec .ciudad table{
+  width: 95%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.sec .ciudad thead{
+  background-color: #754100;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.sec .ciudad tbody{
+  height: 80px;
+  font-size: 17px;
+  font-size: medium;
+}
+
+.sec .ciudad p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 300;
+}
+.sec .localidad {
+  background-color: #3c7332;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+}
+.sec .localidad:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.sec .localidad img {
+  width: 1800px;
+  height: 220px;
+}
+.sec .localidad h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.sec .localidad table{
+  width: 95%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.sec .localidad thead{
+  background-color: #754100;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.sec .localidad tbody{
+  height: 80px;
+  font-size: 17px;
+  font-size: medium;
+}
+.sec .localidad p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 300;
+}
+.sec .huella {
+  background-color: #3c7332;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+}
+.sec .huella:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.sec .huella img {
+  width: 1800px;
+  height: 220px;
+}
+.sec .huella h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+#tablas_huella{
+  width: 100%;
+  columns: 3;
+  margin-top: 20px;
+}
+.sec .huella table{
+  width: 95%;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.sec .huella thead{
+  background-color: #754100;
+  height: 50px;
+  color: #fff;
+  font-size: 17px;
+}
+
+.sec .huella tbody{
+  height: 80px;
+  font-size: 17px;
+  font-size: medium;
+}
+
+.sec .huella p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.sec .derechos h3 {
+    color: #fff;
+    padding: 0.1rem;
+    font-weight: 300;
+}

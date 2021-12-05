@@ -46,7 +46,7 @@ function registrarUsuario(){
      * Registrar el usuario a través de una petición POST.
      */
     $.ajax({
-        url:"http://140.238.179.6:8081/api/user/new",
+        url:"http://localhost:8081/api/user/new",
         method:'POST',
         data: datosEnvio,
         dataType:'json',
@@ -55,8 +55,16 @@ function registrarUsuario(){
             Swal.fire({
                 icon: 'success',
                 title: '¡Cuenta registrada!',
-                text: 'Cuenta registrada con éxito. Bienvenido a bordo, ' + response.name,
+                text: 'Cuenta registrada con éxito. Bienvenido a bordo, ' + response.nombre,
                 footer: '<a href="ingreso.html">Inicia sesión aquí</a>'
+            });
+            limpiarCamposRegistro();
+        },
+        error:function(xhr, status){
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Ocurrió un error al registrar el usuario. Consulte un administrador',
             });
             limpiarCamposRegistro();
         }
