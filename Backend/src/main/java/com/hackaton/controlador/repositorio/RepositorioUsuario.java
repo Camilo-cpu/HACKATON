@@ -42,6 +42,27 @@ public class RepositorioUsuario {
      */
     public Usuario save(Usuario usuario){
         return crudRepositorioUsuario.save(usuario);
+    }    
+    /**
+     *
+     * método para verificar existencia de email
+     * @param email
+     * @return 
+     */
+    
+    public boolean existeEmail(String email) {
+        Optional<Usuario> usuario = crudRepositorioUsuario.findByEmail(email);
+        return !usuario.isEmpty();
+    }
+    /**
+     *
+     * método para verificar existencia de usuario
+     * @param email
+     * @param contrasena
+     * @return 
+     */    
+    public Optional<Usuario> existeUsuario(String email, String contrasena) {
+        return crudRepositorioUsuario.findByEmailAndContrasena(email, contrasena);
     }
     /**
      *

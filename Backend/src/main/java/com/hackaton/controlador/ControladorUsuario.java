@@ -30,7 +30,28 @@ public class ControladorUsuario {
     public List<Usuario> getAll() {
         return servicioUsuario.getAll();
     }
-
+    /**
+     *
+     * Método para consultar si existe email y contrasena en la base de datos mediante URL
+     * @param email
+     * @param contrasena
+     * @return 
+     */ 
+    @GetMapping("/{email}/{contrasena}")
+    public Usuario existeUsuario(@PathVariable("email") String email, 
+            @PathVariable("contrasena") String contrasena) {
+        return servicioUsuario.existeUsuario(email, contrasena);
+    }
+    /**
+     *
+     * Método para consultar si existe email en la base de datos mediante URL
+     * @param email
+     * @return 
+     */ 
+    @GetMapping("/{email}")
+    public boolean existeEmail(@PathVariable("email") String email) {
+        return servicioUsuario.existeEmail(email);
+    }  
     /**
      *
      * Método para mostrar un objeto específico de la base de datos mediante URL
@@ -47,7 +68,7 @@ public class ControladorUsuario {
      * @param usuario
      * @return 
      */ 
-    @PostMapping("/save")
+    @PostMapping("/nuevo")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario save(@RequestBody Usuario usuario){
         return servicioUsuario.save(usuario);
@@ -58,7 +79,7 @@ public class ControladorUsuario {
      * @param usuario
      * @return 
      */ 
-    @PutMapping("/update")
+    @PutMapping("/modificar")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario update(@RequestBody Usuario usuario){
         return servicioUsuario.update(usuario);
@@ -73,5 +94,17 @@ public class ControladorUsuario {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteUsuario(@PathVariable("id") int usuarioId){
         return servicioUsuario.deleteUsuario(usuarioId);
+    }
+
+    /**
+     *
+     * Método para eliminar información del usuario en la base de datos mediante URL
+     * @param usuario
+     * @return
+     */
+    @PutMapping("/eliminar")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Usuario borrarUsuario(@RequestBody Usuario usuario){
+        return servicioUsuario.borrarUsuario(usuario);
     }
 }

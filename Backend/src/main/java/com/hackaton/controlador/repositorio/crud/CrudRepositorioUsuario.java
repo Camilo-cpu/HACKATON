@@ -1,5 +1,6 @@
 package com.hackaton.controlador.repositorio.crud;
 import com.hackaton.modelo.Usuario;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 /**
  *
@@ -7,12 +8,9 @@ import org.springframework.data.repository.CrudRepository;
  */
 /**
  *
- * Interface Crud repositorio para la entidad Usuario
+ * Interface Crud repositorio para la entidad usuarioooooo
  */
 public interface CrudRepositorioUsuario extends CrudRepository<Usuario,Integer>{
-    /**
-     *
-     * Interface Crud repositorio para la entidad Machine (máquina) vacío intencionalmente
-     */  
-    
+    Optional<Usuario> findByEmail(String email);
+    Optional<Usuario> findByEmailAndContrasena (String email,String contrasena);
 }

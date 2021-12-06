@@ -36,6 +36,30 @@ public class ServicioUsuario {
     }
     /**
      *
+     * Método para el servicio de verificar existencia de email
+     * @param email
+     * @return 
+     */ 
+    public boolean existeEmail(String email) {
+        return repositorioUsuario.existeEmail(email);
+    }
+    /**
+     *
+     * Método para el servicio de verificar existencia de email
+     * @param email
+     * @param contrasena
+     * @return 
+     */ 
+    public Usuario existeUsuario(String email, String contrasena) {
+        Optional<Usuario> usuario = repositorioUsuario.existeUsuario(email, contrasena);
+        if (usuario.isEmpty()) {
+            return new Usuario();
+        } else {
+            return usuario.get();
+        }
+    }
+    /**
+     *
      * Método para el servicio de guardar
      * @param usuario
      * @return 
@@ -65,8 +89,8 @@ public class ServicioUsuario {
                 if (usuario.getNombre() != null) {
                     actualizar.get().setNombre(usuario.getNombre());
                 }
-                if (usuario.getEdad() != null) {
-                    actualizar.get().setEdad(usuario.getEdad());
+                if (usuario.getEmail() != null) {
+                    actualizar.get().setEmail(usuario.getEmail());
                 }
                 if (usuario.getUsuario() != null) {
                     actualizar.get().setUsuario(usuario.getUsuario());
@@ -96,4 +120,35 @@ public class ServicioUsuario {
         }).orElse(false);
         return aBoolean;
     } 
-}
+
+    /**
+     *
+     * @param usuario
+     * @return
+     */
+    public Usuario borrarUsuario(Usuario usuario){
+        if (usuario.getId() != null) {
+            Optional<Usuario> borrarUsuario = repositorioUsuario.getUsuario(usuario.getId());
+            if (!borrarUsuario.isEmpty()) {
+                if (usuario.getNombre() != null) {
+                    borrarUsuario.get().setNombre(" ");
+                }
+                if (usuario.getEmail() != null) {
+                    borrarUsuario.get().setEmail(" ");
+                }
+                if (usuario.getUsuario() != null) {
+                    borrarUsuario.get().setUsuario(" ");
+                }
+                if (usuario.getContrasena() != null) {
+                    borrarUsuario.get().setContrasena(" ");
+                }
+                repositorioUsuario.save(borrarUsuario.get());
+                return borrarUsuario.get();
+            } else {
+                return usuario;
+            }
+        } else {
+            return usuario;
+        }
+    }
+}    
