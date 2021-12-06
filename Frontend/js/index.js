@@ -51,7 +51,7 @@ $("#btn-cancelar").click(function(){
  */
 $("#cerrarSesion").click(function(){
     sessionStorage.removeItem("usuario");
-    window.location.href = "ingreso.html";
+    window.location.href = "index.html";
 })
 
 /**

@@ -5,6 +5,7 @@ $(document).ready(function(){
     let usuarioJSON = sessionStorage.getItem("usuario");
     let infoUsuario = JSON.parse(usuarioJSON);
     mostrarDatosUsuario(infoUsuario);
+    cargarDatosActualizar(infoUsuario);
 })
 
 /**
@@ -16,11 +17,33 @@ function mostrarDatosUsuario(infoUsuario){
     $("#email-usuario").html(infoUsuario.email);
 }
 
+function cargarDatosActualizar(infoUsuario){
+    $("#nombre_usuario").val(infoUsuario.nombre);
+    $("#email_usuario").val(infoUsuario.email);
+    $("#user_usuario").val(infoUsuario.usuario);
+    $("#password_usuario").val(infoUsuario.contrasena);
+    $("#password_check").val(infoUsuario.contrasena);
+}
+
 /**
  * Habilitar el modal nuevo registro.
  */
 $("#nuevoReporteUser").click(function(){
     $("#nuevoReporteModal").show();
+})
+
+/**
+ * Habilitar el modal actualizar.
+ */
+ $("#btn-actualizar").click(function(){
+    $("#actualizarModal").show();
+})
+
+/**
+ * Habilitar el modal eliminar.
+ */
+$("#btn-eliminar").click(function(){
+    $("#eliminarModal").show();
 })
 
 /**
@@ -58,19 +81,7 @@ $("#btn-cancelar").click(function(){
  */
 $("#cerrarSesionUser").click(function(){
     sessionStorage.removeItem("usuario");
-    window.location.href = "ingreso.html";
+    window.location.href = "index.html";
 })
 
-/**
- * Habilitar el modal actualizar.
- */
-$("#btn-actualizar").click(function(){
-    $("#actualizarModal").show();
-})
 
-/**
- * Habilitar el modal eliminar.
- */
-$("#btn-eliminar").click(function(){
-    $("#eliminarModal").show();
-})
