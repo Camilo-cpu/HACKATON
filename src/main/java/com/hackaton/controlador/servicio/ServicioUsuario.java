@@ -45,7 +45,7 @@ public class ServicioUsuario {
     }
     /**
      *
-     * Método para el servicio de guardar
+     * Método para el servicio de verificar existencia de email
      * @param email
      * @param contrasena
      * @return 
@@ -120,4 +120,35 @@ public class ServicioUsuario {
         }).orElse(false);
         return aBoolean;
     } 
-}
+
+    /**
+     *
+     * @param usuario
+     * @return
+     */
+    public Usuario borrarUsuario(Usuario usuario){
+        if (usuario.getId() != null) {
+            Optional<Usuario> borrarUsuario = repositorioUsuario.getUsuario(usuario.getId());
+            if (!borrarUsuario.isEmpty()) {
+                if (usuario.getNombre() != null) {
+                    borrarUsuario.get().setNombre(" ");
+                }
+                if (usuario.getEmail() != null) {
+                    borrarUsuario.get().setEmail(" ");
+                }
+                if (usuario.getUsuario() != null) {
+                    borrarUsuario.get().setUsuario(" ");
+                }
+                if (usuario.getContrasena() != null) {
+                    borrarUsuario.get().setContrasena(" ");
+                }
+                repositorioUsuario.save(borrarUsuario.get());
+                return borrarUsuario.get();
+            } else {
+                return usuario;
+            }
+        } else {
+            return usuario;
+        }
+    }
+}    

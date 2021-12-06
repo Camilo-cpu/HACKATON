@@ -4,7 +4,6 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 /**
  *
@@ -16,23 +15,16 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "usuario", indexes = @Index(name = "id", columnList = "usuario", unique = true))
-
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NonNull
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "nombre")
     private String nombre;
-    @NonNull
-    @Column(name = "email", nullable = false)    
+    @Column(name = "email")    
     private String email;
-    @NonNull
-    @Column(name = "usuario", nullable = false)
+    @Column(name = "usuario")
     private String usuario;
-    @NonNull
-    @Column(name = "contrasena", nullable = false)
+    @Column(name = "contrasena")
     private String contrasena;
-    
-
 }

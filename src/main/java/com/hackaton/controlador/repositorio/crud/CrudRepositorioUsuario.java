@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 /**
  *
- * Interface Crud repositorio para la entidad Usuario
+ * Interface Crud repositorio para la entidad usuarioooooo
  */
 public interface CrudRepositorioUsuario extends CrudRepository<Usuario,Integer>{
     Optional<Usuario> findByEmail(String email);
