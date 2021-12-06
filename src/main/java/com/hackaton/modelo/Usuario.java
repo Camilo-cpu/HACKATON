@@ -1,5 +1,7 @@
 package com.hackaton.modelo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,4 +29,12 @@ public class Usuario implements Serializable{
     private String usuario;
     @Column(name = "contrasena")
     private String contrasena;
+    
+    /**
+     *
+     * Relacion entre usuario y recorrido
+     */
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="usuario")
+    @JsonIgnoreProperties({"usuario"})
+    public List<Recorrido>recorrido;
 }
