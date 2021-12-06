@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+
+<head>
+    <title>Usuarios</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/barranavegacion.css">       
+</head>
+
+<body>
+  <nav>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img class="logo" src="img/trns_logo2_wh.png" alt="logo" />
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a id="nuevoReporteUser" href="#">Nuevo Reporte</a></li>
+        <li><a href="usuarios.html" class="active">Mi Cuenta</a></li>
+        <li><a id="cerrarSesionUser" href="#" >Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="sec" id="sec">
+  <h2 id="general"><strong>MI CUENTA</strong></h2>
+  <div class="reportes">
+    <h1>TUS REPORTES</h1>
+    <table id="tabla_reporte_localidad">
+      <tbody id="tbody_reporte_localidad">
+        <tr>
+          <th>Mayor Huella Generada</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Menor Huella Generada</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Promedio Huella Generada</th>
+          <th></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="datos">
+    <h1>TUS DATOS</h1>
+        <table id="huella_6meses">
+          <tbody id="tbody_huella_6meses">
+            <tr>
+              </tr>
+              <th>Nombre:</th>
+              <th id="nombre-usuario"></th>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <th id="email-usuario"></th>
+              </tr>
+              <tr>
+                <th>Último Registro:</th>
+                <th id="ultimo-registro"></th>
+              </tr>
+              <tr>
+                <th><button id="btn-actualizar" class='btn btn-warning'>Actualizar</button></th>
+                <th><button id="btn-eliminar" class='btn btn-danger ml-1'>Darme de Baja</button></th>
+              </tr>          
+            </tr>
+          </tbody>
+        </table id="huella_mes_pasado">
+  </div>
+  <div class="puntos">
+    <h1>TUS PUNTOS</h1>
+    <table id="huella_6meses">
+      <tbody id="tbody_huella_6meses">
+        <tr>
+          <th>Total Puntos</th>
+          <th></th>
+        </tr>
+      </tbody>
+    </table id="huella_mes_pasado">
+  </div>
+
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="d-flex flex-column h-100">
+
+  <!-- FOR DEMO PURPOSE 
+  <section class="hero text-white py-5 flex-grow-1">
+      <div class="container py-4">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h1 class="display-4">Bootstrap footer bottom</h1>
+                  <p class="fst-italic text-muted">Using Bootstrap 5 flexbox utilities, create a footer that always sticks to the bottom of your viewport. Snippet by </p>
+              </div>
+          </div>
+      </div>
+  </section>
+  -->
+
+  <!-- FOOTER -->
+  <footer class="w-100 py-4 flex-shrink-0">
+      <div class="container py-4">
+          <div class="row gy-4 gx-5">
+              <div class="col-lg-4 col-md-6">
+                  <h4 class="h2 text-white">Derechos de Autor</h4>
+                  <p class="small text-muted">CREADO POR EQUIPO PARA LA HACKATON DE LA UNIVERSIDAD SERGIO ARBOLEDA.</p>
+                  <p class="small text-muted mb-0">&copy; Copyrights. Todos los derechos reservados.</p>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                  <h5 class="text-white mb-3"></h5>
+
+              </div>
+
+              <div class="col-lg-4 col-md-6">
+                  <h4 class="text-white mb-3">Accesos</h4>
+                  <p class="small text-muted"><a class="navbar-brand" href="#">Términos y Condiciones</a></p>
+                  <p class="small text-muted"><a class="navbar-brand" href="#">Quienes somos</a></p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
+
+  <!--Modal nuevo reporte-->
+  <div id="nuevoReporteModal" class="modalFormulario">
+    <div class="modalContent">
+      <!--Header modal-->
+      <div class="modalHeader">
+        <span class="close-modal">&times;</span>
+        <h4 class="modalTitle">Nuevo reporte</h4>
+      </div>
+      <!--Body modal-->
+      <div class="modalBody">
+        <form id="formulario-nuevo-registro">
+          <!--Fecha registro-->
+          <div>
+            <label for="fecha_registro">Fecha de registro</label>
+            <input type="datetime-local" id="fecha_registro">
+          </div>
+          <div class="error" id="error_fecha"></div>
+          <!--Ciudad registro-->
+          <div>
+            <label for="ciudad_registro">Ciudad</label>
+            <select id="ciudad_registro">
+              <option value="default" selected hidden>Seleccione ciudad</option>
+              <option value="BOGOTA">Bogotá</option>
+            </select>
+          </div>
+          <div class="error" id="error_ciudad"></div>
+          <!--Localidad registro-->
+          <div>
+            <label for="localidad_registro">Localidad</label>
+            <select id="localidad_registro">
+              <option value="default" selected hidden>Seleccione localidad</option>
+              <option value="ANTONIO_NARINO">Antonio Nariño</option>
+              <option value="BARRIOS_UNIDOS">Barrios Unidos</option>
+              <option value="BOSA">Bosa</option>
+              <option value="CHAPINERO">Chapinero</option>
+              <option value="CIUDAD_BOLIVAR">Ciudad Bolívar</option>
+              <option value="ENGATIVA">Engativá</option>
+              <option value="FONTIBON">Fontibón</option>
+              <option value="KENNEDY">Kennedy</option>
+              <option value="CANDELARIA">La Candelaria</option>
+              <option value="MARTIRES">Los Mártires</option>
+              <option value="PUENTE ARANDA">Puente Aranda</option>
+              <option value="RAFAEL_URIBE_URIBE">Rafael Uribe Uribe</option>
+              <option value="SAN_CRISTOBAL">San Cristóbal</option>
+              <option value="SANTA_FE">Santa Fe</option>
+              <option value="SUBA">Suba</option>
+              <option value="SUMAPAZ">Sumapaz</option>
+              <option value="TEUSAQUILLO">Teusaquillo</option>
+              <option value="TUNJUELITO">Tunjuelito</option>
+              <option value="USAQUEN">Usaquén</option>
+              <option value="USME">Usme</option>
+            </select>
+          </div>
+          <div class="error" id="error_localidad"></div>
+          <!--Vehículo registro-->
+          <div>
+            <label for="vehiculo">Medio de transporte</label>
+            <select id="vehiculo">
+              <option value="default" selected hidden>Seleccione un vehículo</option>
+              <option value="PIE">A pie</option>
+              <option value="AUTOMOVIL">Automóvil</option>
+              <option value="BICICLETA">Bicicleta</option>
+              <option value="BUS">Bus</option>
+              <option value="MOTO">Moto</option>
+              <option value="PATINES">Patines</option>
+              <option value="PATIN_ELECTRICA">Patineta eléctrica</option>
+              <option value="TRANSMILENIO">Transmilenio</option>
+            </select>
+          </div>
+          <div class="error" id="error_vehiculo"></div>
+          <!--Distancia registro-->
+          <div>
+            <label for="distancia">Distancia (kms)</label>
+            <input type="number" id="distancia">
+          </div>
+          <div class="error" id="error_distancia"></div>
+          <!--Combustible vehículo-->
+          <div>
+            <label for="combustible">Combustible</label>
+            <select id="combustible">
+              <option value="default" selected hidden>Seleccione el combustible</option>
+              <option value="DIESEL">Diesel</option>
+              <option value="ELECTRICIDAD">Electricidad</option>
+              <option value="GAS">Gas</option>
+              <option value="GASOLINA">Gasolina</option>
+              <option value="NINGUNO">Ninguno</option>
+            </select>
+          </div>
+          <div class="error" id="error_combustible"></div>
+          <!--Tipo recorrido-->
+          <div>
+            <label for="tipo_recorrido">Tipo recorrido</label>
+            <select id="tipo_recorrido">
+              <option value="default" selected hidden>Seleccione el tipo de recorrido</option>
+              <option value="PLANO">Plano</option>
+              <option value="SUBIDA">En subida</option>
+              <option value="BAJADA">En bajada</option>
+              <option value="MIXTO">Mixto</option>
+            </select>
+          </div>
+          <div class="error" id="error_tipo"></div>
+        </form>
+      </div>
+      <!--Footer modal-->
+      <div class="modalFooter">
+        <div id="botones">
+          <button id="btn-cancelar" class="btn-cancelar">Cancelar</button>
+          <button id="btn-registrar" class="btn-registrar">Registrar reporte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal actualizar-->
+  <div id="actualizarModal" class="modalFormulario">
+    <div class="modalContent">
+      <!--Header modal-->
+      <div class="modalHeader">
+        <span class="close-modal">&times;</span>
+        <h4 class="modalTitle">Actualizar datos</h4>
+      </div>
+      <!--Body modal-->
+      <div class="modalBody">
+        <form id="formulario-actualizar">
+          <!--Campo nombre-->
+          <div>
+              <label for="nombre_usuario">Nombre</label>
+              <input
+                  type="text"
+                  name="nombre_usuario"
+                  id="nombre_usuario"
+                  placeholder="Juan Beltran"
+              />                
+              <!--Espacio para insertar mensaje error-->
+              <div class="error" id="error_nombre"></div>                
+          </div>
+          <!--Campo email-->
+          <div>
+              <label for="email_usuario">Email</label>
+              <input
+                  type="email"
+                  name="email_usuario"
+                  id="email_usuario"
+                  placeholder="abc@correo.com"
+              />
+              <!--Espacio para insertar mensaje error-->
+              <div class="error" id="error_email"></div>
+          </div>
+          <!--Campo usuario-->
+          <div>
+            <label for="user_usuario">Usuario</label>
+            <input
+                type="text"
+                name="user_usuario"
+                id="user_usuario"
+                placeholder="Usuario_123"
+            />                
+            <!--Espacio para insertar mensaje error-->
+            <div class="error" id="error_user"></div>                
+        </div>
+          <!--Campo contraseña-->
+          <div>                
+              <label for="password_usuario">Contraseña</label>
+              <input
+                  type="password"
+                  name="password_usuario"
+                  id="password_usuario"
+                  placeholder="Ingresar contraseña"
+              />
+              <!--Espacio para insertar mensaje error-->
+              <div class="error" id="error_password"></div>
+          </div>
+          <!--Campo confirmar contraseña-->
+          <div>                
+              <label for="password_check">Confirmar contraseña</label>
+              <input
+                  type="password"
+                  name="password_check"
+                  id="password_check"
+                  placeholder="Confirmar contraseña"
+              />
+              <!--Espacio para insertar mensaje error-->
+              <div class="error" id="error_password_check"></div>
+          </div>
+        </form>
+      </div>
+      <!--Footer modal-->
+      <div class="modalFooter">
+        <div id="botones">
+          <button id="btn-cancelar-actu" class="btn-cancelar">Cancelar</button>
+          <button id="btn-actualizar" class="btn-registrar">Actualizar datos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal confirmar darse de baja-->
+  <div id="eliminarModal" class="modalFormulario">
+    <div class="modalContent">
+      <!--Header modal-->
+      <div class="modalHeader">
+        <span class="close-modal">&times;</span>
+        <h4 class="modalTitle">Darse de baja</h4>
+      </div>
+      <!--Body modal-->
+      <div class="modalBody">
+        <p>¿Está seguro de querer darse de baja?</p>
+        <p>Sus datos personales se borrarán, aunque se guardarán sus registros para los reportes generales.</p>
+      </div>
+      <!--Footer modal-->
+      <div class="modalFooter">
+        <div id="botones">
+          <button id="btn-cancelar-eliminar" class="btn-cancelar">Cancelar</button>
+          <button id="btn-eliminar" class="btn-eliminar">Darme de baja</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/usuarios.js" type="text/javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

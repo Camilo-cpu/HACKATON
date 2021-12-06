@@ -1,0 +1,363 @@
+/*******************Barra de Navegación*******************/
+nav{
+    background: #35643e;
+    padding: 09px;
+}
+
+.logo {
+  width: 50%;
+  height: 50%;
+  margin-left: 50px;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  padding-top: 10px;
+}
+
+ul li {
+  list-style: none;
+  margin-left: 20px;
+  align-items: center;
+}
+ul li a {
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 10px 50px;
+  color: #fff;
+  border-radius: 20px;
+  align-items: center;
+}
+ul li a:hover,
+ul li a.active {
+  background: #fff;
+  color: #35643e;
+}
+
+/*******************Cuerpo*******************/
+.sec {
+  position: relative;
+  padding: 100px;
+  background: #254e2c;
+}
+.sec h2 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+.sec .reportes {
+  background-color: #3c7332;
+  float: left;
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+  color: #fff;
+  
+}
+.sec .reportes:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.sec .reportes img {
+  width: 1800px;
+  height: 220px;
+}
+.sec .reportes h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+.sec .reportes table{
+  width: 95%;
+  margin: auto;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+.sec .reportes tbody{
+  height: 80px;
+  font-size: 20px;
+  font-size: larger;
+}
+
+.sec .reportes p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 500;
+}
+.sec .puntos {
+  background-color: #3c7332;
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+  color: #fff;
+}
+.sec .puntos:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.sec .puntos img {
+  width: 1800px;
+  height: 220px;
+}
+.sec .puntos h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.sec .puntos table{
+  width: 75%;
+  margin: auto;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+
+.sec .puntos tbody{
+  height: 80px;
+  font-size: 17px;
+  font-size: larger;
+}
+.sec .puntos p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.datos {
+  background-color: #3c7332;
+  float: right;
+  width: 40%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  padding-bottom: 30px;
+  color: #fff;
+}
+.datos:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.datos img {
+  width: 1800px;
+  height: 220px;
+}
+
+.datos h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+#tablas_datos{
+  width: 100%;
+  columns: 3;
+  margin-top: 20px;
+}
+.sec .datos table{
+  
+  width: 95%;
+  height: 10px;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.sec .datos tbody{
+  height: z0px;
+  font-size: 17px;
+  font-size: medium;
+}
+
+.sec .datos p {
+  color: #fff;
+  padding: 0.1rem;
+  font-size: 30px;
+  font-weight: 300;
+}
+/*******************Pie de Página*******************/
+
+.text-small {
+  font-size: 0.9rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+.form-control {
+  background: #212529;
+  border-color: #545454;
+}
+
+.form-control:focus {
+  background: #212529;
+}
+
+footer {
+  background: #35643e;
+}
+
+.display-4{
+  color:white;
+}
+.fst-italic{
+  color:white;
+}
+
+
+.modalFormulario{
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  font-family: sans-serif;
+}
+
+.modalHeader{
+  background-color: #3c7332;
+  margin: auto;
+  margin-top: 10%;
+  width: 40%;
+  height: 40px;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.close-modal{
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 1% 4%;
+}
+
+.close-modal:hover,
+.close-modal:focus{
+  color:#246629;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalTitle{
+  color: #fff;
+  margin-left: 4%;
+  padding-top: 2%;
+  font-size: 20px;
+}
+
+.modalBody{
+  background-color: #fff;
+  margin: auto;
+  width: 40%;
+  padding: 2%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#formulario-nuevo-registro div,
+#formulario-actualizar div{
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#formulario-nuevo-registro div input,
+#formulario-nuevo-registro div select,
+#formulario-actualizar div input,
+#formulario-actualizar div select {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #c4c4c4;
+  padding: 0 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modalFooter{
+  background-color: #3c7332;
+  margin: auto;
+  width: 40%;
+  height: auto;
+  border-radius: 0px 0px 6px 6px;
+}
+
+#botones{
+  margin-left:5%;
+}
+
+.btn-cancelar,
+.btn-registrar,
+.btn-eliminar{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width:35%;
+  height: 40px;
+  padding: 10px;
+  color:#fff;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor:pointer;
+  box-shadow: 3px 3px 5px rgb(1, 73, 28);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-cancelar{
+  background-color: #aaa;
+}
+
+.btn-registrar{
+  background-color: #e08c25;
+}
+
+.btn-eliminar{
+  background-color: #e04125;
+}
+
+.btn-cancelar:hover,
+.btn-registrar:hover{
+  background-color: #35643E;
+}
+
+/* ==========================================
+    CUSTOM UTILS CLASSES
+  ========================================== */
+  body, html {
+    height: 100%;
+  }

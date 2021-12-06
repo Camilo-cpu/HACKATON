@@ -138,6 +138,7 @@ function validarCamposRegistro(){
      * Variables para controlar la validación de los campos.
      */
     var statusEmail = false;
+    var statusUser = false;
     var statusNombre = false;
     var statusPassword = false;
     var statusCheckPswrd = false;
@@ -191,6 +192,31 @@ function validarCamposRegistro(){
 
         // Cambiar estado de validación
         statusEmail = true;
+    }
+
+    /**
+     * Validar campo usuario
+     */
+     if ($("#user_usuario").val().trim()==""){
+        $("#error_user").html("El usuario no puede estar en blanco.");
+        $("#user_usuario").css("border", "2px solid red");
+
+        //Mostrar ícono error
+        $("#i_error_user").css("opacity", "1");
+        $("#i_exito_user").css("opacity", "0");
+
+        // Cambiar estado de validación
+        statusUser = false;
+    } else {
+        $("#error_user").html("");
+        $("#user_usuario").css("border", "2px solid green");
+
+        //Mostrar ícono éxito
+        $("#i_error_user").css("opacity", "0");
+        $("#i_exito_user").css("opacity", "1");
+
+        // Cambiar estado de validación
+        statusUser = true;
     }
 
     /**

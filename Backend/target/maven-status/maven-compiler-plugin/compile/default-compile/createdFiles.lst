@@ -1,0 +1,6 @@
+com\hackaton\controlador\ControladorUsuario.class
+com\hackaton\controlador\repositorio\RepositorioUsuario.class
+com\hackaton\controlador\repositorio\crud\CrudRepositorioUsuario.class
+com\hackaton\controlador\servicio\ServicioUsuario.class
+com\hackaton\HackatonApplication.class
+com\hackaton\modelo\Usuario.class

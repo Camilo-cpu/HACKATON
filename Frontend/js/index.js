@@ -26,6 +26,27 @@ window.addEventListener("scroll", function () {
 });
 
 /**
+ * Habilitar el modal nuevo registro.
+ */
+$("#nuevoReporte").click(function(){
+    $("#nuevoReporteModal").show();
+})
+
+/**
+ * Deshabilitar el modal nuevo registro al dar click en la X.
+ */
+$(".close-modal").click(function(){
+    $("#nuevoReporteModal").hide();
+})
+
+/**
+ * Deshabilitar el modal nuevo registro al dar click en botón Cancelar.
+ */
+$("#btn-cancelar").click(function(){
+    $("#nuevoReporteModal").hide();
+})
+
+/**
  * Cerrar sesión.
  */
 $("#cerrarSesion").click(function(){
